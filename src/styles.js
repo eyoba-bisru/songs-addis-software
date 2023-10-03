@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Outer = styled.div`
+export const OuterDiv = styled.div`
 //   border: 1px solid gray;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 1rem;
 `;
 
 export const Heading = styled.h1`
@@ -33,6 +34,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Modal = styled.div`
@@ -66,6 +70,12 @@ export const CloseImage = styled.img`
   width: 2rem;
   height: 2rem;
   cursor: pointer;
+`
+
+export const InnerDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
 `
 
 
