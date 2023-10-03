@@ -14,10 +14,10 @@ const SongComponent = ({ song }) => {
         }}
       >
         <Buttons>
-          <img src="/src/assets/edit.svg" alt="edit-icon" />
+          <img src="/assets/edit.svg" alt="edit-icon" />
         </Buttons>
         <Buttons>
-          <img src="/src/assets/delete.svg" alt="delete-icon" />
+          <img src="/assets/delete.svg" alt="delete-icon" />
         </Buttons>
       </div>
     </Song>

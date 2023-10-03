@@ -17,7 +17,7 @@ const ModalComponent = ({ show, setShow }) => {
           <Input placeholder="title" type="text" />
           <Button>Add</Button>
         </Form>
-        <CloseImage onClick={handleClose} src="/src/assets/close.svg" />
+        <CloseImage onClick={handleClose} src="/assets/close.svg" alt="close" />
       </Container>
     </Modal>
   );

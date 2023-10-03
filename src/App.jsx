@@ -17,7 +17,7 @@ function App() {
         <h2>List of Songs</h2>
         <Button onClick={handleOpen}>
           <p>Create</p>
-          <img src="/src/assets/plus.svg" alt="plus" />
+          <img src="/assets/plus.svg" alt="plus" />
         </Button>
       </InnerDiv>
       <div>
