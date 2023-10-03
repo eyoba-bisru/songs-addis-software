@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const OuterDiv = styled.div`
 //   border: 1px solid gray;
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
 `;
@@ -74,8 +74,23 @@ export const CloseImage = styled.img`
 
 export const InnerDiv = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 2rem;
 `
+export const Song = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid gray;
+`
 
+export const Buttons = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+`
 
