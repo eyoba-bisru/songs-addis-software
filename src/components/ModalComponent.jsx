@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, CloseImage, Container, Form, Input, Modal } from "../styles";
+import { change } from "../features/show/showSlice";
+import useShow from "../hooks/useShow";
+import useEdit from "../hooks/useEdit";
 
-const ModalComponent = ({ show, setShow }) => {
+const ModalComponent = () => {
+  const { show, dispatch } = useShow();
+  const { edit } = useEdit();
+
   const handleClose = () => {
-    setShow(false);
+    dispatch(change());
   };
 
   return (
@@ -15,7 +21,7 @@ const ModalComponent = ({ show, setShow }) => {
           }}
         >
           <Input placeholder="title" type="text" />
-          <Button>Add</Button>
+          {edit ? <Button>Edit</Button> : <Button>Add</Button>}
         </Form>
         <CloseImage onClick={handleClose} src="/assets/close.svg" alt="close" />
       </Container>

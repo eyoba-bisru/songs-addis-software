@@ -1,13 +1,14 @@
-import { Button, Buttons, Heading, InnerDiv, OuterDiv, Song } from "./styles";
+import { Button, Heading, InnerDiv, OuterDiv } from "./styles";
 import ModalComponent from "./components/ModalComponent";
-import { useState } from "react";
 import SongComponent from "./components/SongComponent";
+import { change } from "./features/show/showSlice";
+import useShow from "./hooks/useShow";
 
 function App() {
-  const [show, setShow] = useState(false);
+  const { show, dispatch } = useShow();
 
   const handleOpen = () => {
-    setShow(true);
+    dispatch(change());
   };
 
   return (
@@ -25,7 +26,7 @@ function App() {
           <SongComponent song={song} />
         ))}
       </div>
-      <ModalComponent show={show} setShow={setShow} />
+      <ModalComponent />
     </OuterDiv>
   );
 }
