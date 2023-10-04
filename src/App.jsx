@@ -3,9 +3,18 @@ import ModalComponent from "./components/ModalComponent";
 import SongComponent from "./components/SongComponent";
 import { change } from "./features/show/showSlice";
 import useShow from "./hooks/useShow";
+import { useEffect } from "react";
+import { getSongsFetch } from "./features/song/songSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const { show, dispatch } = useShow();
+  const { dispatch } = useShow();
+  const songs = useSelector((state) => state.song.value);
+  const isLoading = useSelector((state) => state.song.isLoading);
+
+  useEffect(() => {
+    dispatch(getSongsFetch());
+  }, []);
 
   const handleOpen = () => {
     dispatch(change());
@@ -22,9 +31,11 @@ function App() {
         </Button>
       </InnerDiv>
       <div>
-        {["Teddy Afro Gura Bcha", "Ed Sheeren Perfect"].map((song) => (
-          <SongComponent song={song} />
-        ))}
+        {isLoading ? (
+          <div>Loading</div>
+        ) : (
+          songs.map((song) => <SongComponent song={song.title} />)
+        )}
       </div>
       <ModalComponent />
     </OuterDiv>
