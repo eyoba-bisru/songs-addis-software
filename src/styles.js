@@ -5,6 +5,9 @@ export const OuterDiv = styled.div`
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  min-height: calc(100vh - 2rem);
 `;
 
 export const Heading = styled.h1`

@@ -5,11 +5,13 @@ import { change } from "../features/show/showSlice";
 import useEdit from "../hooks/useEdit";
 import axios from "axios";
 import { getSongsFetch } from "../features/song/songsSlice";
+import { changeEditContent } from "../features/edit/editContentSlice";
 
 const SongComponent = ({ song }) => {
   const { edit, dispatch } = useEdit();
 
   const handleEdit = () => {
+    dispatch(changeEditContent({ id: song._id, title: song.title }));
     dispatch(changeEdit());
     dispatch(change());
   };
@@ -19,9 +21,11 @@ const SongComponent = ({ song }) => {
       .delete(
         `https://test-addis-software-backend.onrender.com/api/v1/songs/${song._id}`
       )
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data);
+        dispatch(getSongsFetch());
+      })
       .catch((err) => console.log(err));
-    dispatch(getSongsFetch());
   };
 
   return (
