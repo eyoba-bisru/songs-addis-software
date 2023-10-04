@@ -27,9 +27,7 @@ function App() {
         {isLoading ? (
           <div>Loading</div>
         ) : (
-          songs.map((song) => (
-            <SongComponent key={song._id} song={song.title} />
-          ))
+          songs.map((song) => <SongComponent key={song._id} song={song} />)
         )}
       </div>
       <ModalComponent songs={songs} />
