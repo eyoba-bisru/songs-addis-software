@@ -3,18 +3,11 @@ import ModalComponent from "./components/ModalComponent";
 import SongComponent from "./components/SongComponent";
 import { change } from "./features/show/showSlice";
 import useShow from "./hooks/useShow";
-import { useEffect } from "react";
-import { getSongsFetch } from "./features/song/songSlice";
-import { useDispatch, useSelector } from "react-redux";
+import useSong from "./hooks/useSong";
 
 function App() {
   const { dispatch } = useShow();
-  const songs = useSelector((state) => state.song.value);
-  const isLoading = useSelector((state) => state.song.isLoading);
-
-  useEffect(() => {
-    dispatch(getSongsFetch());
-  }, []);
+  const { songs, isLoading } = useSong();
 
   const handleOpen = () => {
     dispatch(change());
@@ -34,10 +27,12 @@ function App() {
         {isLoading ? (
           <div>Loading</div>
         ) : (
-          songs.map((song) => <SongComponent song={song.title} />)
+          songs.map((song) => (
+            <SongComponent key={song._id} song={song.title} />
+          ))
         )}
       </div>
-      <ModalComponent />
+      <ModalComponent songs={songs} />
     </OuterDiv>
   );
 }

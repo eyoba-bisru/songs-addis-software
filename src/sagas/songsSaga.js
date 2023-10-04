@@ -1,5 +1,5 @@
 import {call, takeEvery, put} from 'redux-saga/effects'
-import { getSongsFailure, getSongsSuccess } from '../features/song/songSlice'
+import { getSongsFailure, getSongsSuccess } from '../features/song/songsSlice'
 
 function* workGetSongFetch() {
     try {

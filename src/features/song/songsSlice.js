@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false
 }
 
-export const songSlice = createSlice({
+export const songsSlice = createSlice({
   name: 'songs',
   initialState,
   reducers: {
@@ -22,6 +22,6 @@ export const songSlice = createSlice({
   },
 })
 
-export const { getSongsFailure, getSongsFetch, getSongsSuccess } = songSlice.actions
+export const { getSongsFailure, getSongsFetch, getSongsSuccess } = songsSlice.actions
 
-export default songSlice.reducer
+export default songsSlice.reducer

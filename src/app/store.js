@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import showReducer from '../features/show/showSlice'
 import editReducer from '../features/edit/editSlice'
-import songReducer from '../features/song/songSlice'
+import songsReducer from '../features/song/songsSlice'
 import createSagaMiddleware from 'redux-saga'
-import songSaga from '../sagas/songSaga'
+import songsSaga from '../sagas/songsSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -11,9 +11,9 @@ export const store = configureStore({
   reducer: {
     show: showReducer,
     edit: editReducer,
-    song: songReducer,
+    songs: songsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 })
 
-sagaMiddleware.run(songSaga)
+sagaMiddleware.run(songsSaga)
